@@ -1,7 +1,8 @@
-import "@mantine/core/styles.css";
+import "bulma/css/bulma.min.css";
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Tasty Recipe Next",
@@ -11,11 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
