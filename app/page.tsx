@@ -1,5 +1,12 @@
 import Card from "./components/Card";
 
+type RecipeProps = {
+  id: number;
+  name: string;
+  time: string;
+  thumbnail_url: string;
+};
+
 export default async function Home() {
   const endpoint = "/recipes/list";
   const apiUrl = process.env.NEXT_PUBLIC_API || "";
@@ -24,7 +31,7 @@ export default async function Home() {
 
       <section className="container">
         <div className="columns is-multiline my-3">
-          {data?.results?.map((item) => (
+          {data?.results?.map((item: RecipeProps) => (
             <div key={item?.id} className="column is-3">
               <Card
                 time={item?.time}
